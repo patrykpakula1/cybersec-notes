@@ -1,3 +1,42 @@
+# Podstawy sieci — client, server, protokół, port, DNS
+
+Analogia z pizzą (Luigi's Pizza): Alice zamawia pizzę przez Boba, który zanosi zamówienie do restauracji.
+
+## Client (klient) i Server (serwer)
+- **Client** = ten, kto WYSYŁA żądanie (np. przeglądarka prosząca o stronę). Alice zamawiająca pizzę.
+- **Server** = ten, kto OBSŁUGUJE żądanie i odsyła odpowiedź. Restauracja robiąca pizzę.
+- WAŻNE: to zawsze **klient inicjuje** połączenie. Serwer tylko odpowiada.
+
+## Request (żądanie) i Response (odpowiedź)
+- **Request** = klient prosi o coś (Alice zamawia dużą pepperoni)
+- **Response** = serwer odsyła wynik (pizza albo błąd, np. "nie ma pepperoni")
+- Jak żądanie jest źle sformatowane albo zasób niedostępny → dostajesz błąd
+
+## Protokół
+Zasady, jak klient i serwer się komunikują (jak wspólny język między Alice a restauracją). Protokół określa:
+- jakie komendy obie strony rozumieją (np. `get`)
+- jak zbudowane jest żądanie
+- jaka składnia (język)
+- jaka odpowiedź na jakie żądanie
+- co odpowiedzieć na błędne żądanie
+
+## Port
+- **Port** = identyfikuje KONKRETNĄ usługę na serwerze. Klient musi połączyć się na właściwy port.
+- Analogia: różne drzwi do restauracji — drzwi A (takeaway), B (restauracja), C (dostawa).
+- Jeden serwer może mieć wiele usług naraz, każda na innym porcie.
+- (Pamiętam z iptables: port 22 = SSH, 80 = HTTP, 443 = HTTPS)
+
+## DNS (Domain Name Service)
+- Zamienia **nazwę** (np. luigis-pizza.com) na **adres IP** (dokładną lokalizację serwera).
+- Analogia: jak GPS — podajesz nazwę, dostajesz współrzędne.
+- IP to jak adres domu (ulica, numer, miasto), ale dla komputerów.
+- Bez DNS musiałbyś pamiętać ciągi cyfr zamiast nazw stron.
+
+## Jak to się łączy w SOC
+Analityk patrzy na ruch sieciowy: kto (client) łączył się z czym (server), na jakim porcie (jaka usługa), pod jaki adres (IP z DNS). Dziwne połączenie na nietypowy port albo do podejrzanej domeny = sygnał do sprawdzenia.
+
+
+
 # HTTP i HTTPS — podstawy
 
 ## Co to HTTP(S)
